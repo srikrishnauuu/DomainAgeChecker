@@ -1,0 +1,15 @@
+
+
+    <!-- <table>
+        <% for(var i=0; i < data.length; i++) { %>
+        <tr>
+          <td><%= data[i].domainName %></td>
+          <td><%= data[i].registrar %></td>
+        </tr>
+        <% } %>
+      </table> -->
+
+
+
+      help links:
+      https://www.youtube.com/watch?v=F5DVJmhqNvc

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title%></title>
+    <link
+      href="//stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Domain Age Checker</h1>
+      <form action="/domainagechecker" method="post">
+        <div class="form-group">
+          <label for="domain">Domain URL:</label>
+          <textarea rows="4"
+            class="form-control"
+            type="text"
+            name="domain"
+            id=""
+            placeholder="write a domain (one domain per line, no comma & no space)"
+          ></textarea>
+        </div>
+        <br />
+        <div class="form-group">
+          <button class="btn btn-block btn-primary">Get Details</button>
+        </div>
+      </form>
+      <br />
+
+      <%if (flag) { %>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Domain Name</th>
+            <th>Running Server</th>
+            <th>Creation Date</th>
+            <th>Domain Age</th>
+            <th>Last Renewal</th>
+            <th>Expiry Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% results.forEach(function(result) { %>
+          <tr>
+            <td><%= result.domainName %></td>
+            <td><%= result.data.registrar %></td>
+            <td><%= result.date %></td>
+            <td><%= result.domainAge %></td>
+            <td><%= result.data.updatedDate %></td>
+            <td><%= result.data.registryExpiryDate %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } %>
+    </div>
+  </body>
+  <script
+    type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+  ></script>
+</html>

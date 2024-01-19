@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title%></title>
+    <link
+      href="//stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Meta Tags Analyzer</h1>
+      <form action="/metatags" method="post">
+        <div class="form-group">
+          <label for="domain">Domain URL:</label>
+          <input
+            class="form-control"
+            type="text"
+            name="domain"
+            id=""
+            placeholder="write a domain"
+          >
+        </div>
+        <br />
+        <div class="form-group">
+          <button class="btn btn-block btn-primary">Get Meta Tags</button>
+        </div>
+      </form>
+      <br />
+  
+      <h2><%=data.domainName%></h2>
+
+      <%if (data.length) { %> <% for(let curDomain of data) { %> 
+            <h3><%= curDomain.domainName %></h3>
+
+            <% } %> <% } else { %> 
+            <div>No domains available</div> 
+        <% } %>
+
+      <%if (flag) { %>
+        
+        
+      
+      <% } %>
+    </div>
+  </body>
+  <script
+    type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+  ></script>
+</html>
